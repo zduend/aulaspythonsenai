@@ -22,3 +22,30 @@ elif nome == "Joao":
     print("Olha só, o dono da balada chegou.")
 else:
     print("Olá "+ nome +"! Seja bem vindo a nossa balada.")
+
+#MATCH CASE
+
+match primeira_resposta: # Espera um String
+    case 'a': # primera_resposta == 'a'? False
+        print("Resposta incorreta.")
+    case 'b':# primera_resposta == 'b'? True
+        print("Resposta correta.")
+    case 'c':
+        print("Resposta incorreta.")
+    case 'd':
+        print("Resposta incorreta.")
+    case 1:
+        print("Resposta não pode ser númerica.")
+    case _: # _ significa valor default, ou seja, valor padrão
+        print("Resposta inválida.")
+
+
+# VÁRIAS OPÇÕES EM UM CASE
+
+dia = input('Digite o dia dessa semana: ')
+
+match dia:
+    case "sabado" | "domingo":
+        print("Esse dia é em um FINAL DE SEMANA")
+    case "segunda" | "terça" | "quarta" | "quinta" | "sexta":
+        print("Esse dia é DURANTE A SEMANA")
