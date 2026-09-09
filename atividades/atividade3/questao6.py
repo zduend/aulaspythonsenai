@@ -6,3 +6,4 @@ if acesso_liberado:
     print("Acesso liberado com sucesso.")
 else:
     print("Senha incorreta.")
+
