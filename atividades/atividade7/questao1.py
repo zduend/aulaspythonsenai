@@ -18,5 +18,11 @@ for index in range(0, len(lista_funcionarios)):
 index_aumento = int(input("Digite o índice do funcionário que receberá aumento:"))
 lista_aumento.append(lista_funcionarios[index_aumento])
 
+index_demissao = int(input("Digite o indice de quem será demitido"))
+lista_demitidos.append(lista_funcionarios[index_demissao])
 
+for index in range(0, len(lista_aumento)):
+    print([index],[lista_aumento[index]])
 
+for index in range(0, len(lista_demitidos)):
+    print([index],[lista_demitidos[index]])
