@@ -1,9 +1,6 @@
 lista_funcionarios = []
-numero_funcionarios = 0
 lista_aumento = []
 lista_demitidos = []
-
-
 
 while True:
     funcionario = input("Adicione um funcionario: ")
