@@ -17,16 +17,25 @@ print(lista_funcionarios)
 for index in range(0, len(lista_funcionarios)):
     print([index],[lista_funcionarios[index]])
 
-index_aumento = int(input("Digite o índice do funcionário que receberá aumento:"))
-lista_aumento.append(lista_funcionarios[index_aumento])
+while True:
+    index_aumento = int(input("Digite o índice do funcionário que receberá aumento:"))
+    lista_aumento.append(lista_funcionarios[index_aumento])
+    opcao = input("Deseja escolher outro? [S/N] ")
+    if opcao == "N":
+        break
 
-index_demissao = int(input("Digite o indice de quem será demitido: "))
-lista_demitidos.append(lista_funcionarios[index_demissao])
+while True:
+    index_demissao = int(input("Digite o indice de quem será demitido: "))
+    lista_demitidos.append(lista_funcionarios[index_demissao])
+    opcao = input("Deseja escolher outro? [S/N] ")
+    if opcao == "N":
+        break
 
 for index in range(0, len(lista_aumento)):
     print("Este Funcionario terá aumento: ", [index],[lista_aumento[index]])
 
 for index in range(0, len(lista_demitidos)):
     print("Este Funcionário será demitido: ", [index],[lista_demitidos[index]])
+
 
 
