@@ -1,6 +1,6 @@
 # ARQUIVO TesteFuncao.py
 #      biblioteca
-from aulas.Funcoes import soma, olaUsuario # hierarquia
+from aulas.ProgramacaoEstruturada.Funcoes import soma, olaUsuario # hierarquia
 
 olaUsuario("João")
 
