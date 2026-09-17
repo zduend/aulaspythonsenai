@@ -7,6 +7,9 @@ class Carros:
         self.lugares = lugares
 
 
+    def __str__(self):
+        return f"\tModelo do carro: {self.modelo}\n\tAno do carro: {self.ano}\n\tQuantas portas: {self.portas}\n\tMarchas: {self.marchas}\n\tlugares: {self.lugares}\n\t"
+
     def mostrarmodelocarros(self):
         print(self.modelo)
 
@@ -14,16 +17,15 @@ class Carros:
         print(f"O {self.modelo} foi ligado!")                       # METODOS CONVÊNCIONAIS
 
     def desligar(self):
-        print(f"O {self.modelo} está desligado!")
+        print(f"O {self.modelo} está ligando...")
 
-    def __str__(self):
-        return f"Modelo do carro: {self.modelo}\nAno do carro: {self.ano}\nQuantas portas: {self.portas}\nMarchas: {self.marchas}\nlugares: {self.lugares}\n"  # METODOS ESPECIAIS
+      
 
-Carro1 = Carros("Gol", "1999", 2, 5, 5)
-Carro2 = Carros("Civic", "2001", 4, 6, 5)
-Carro3 = Carros("Uno", "2013", 2, 5, 5)                     #OBJETOS E INSTÂNCIAS
-Carro4 = Carros("Corolla", "2014", 2, 5, 5)
-Carro5 = Carros("Onix", "2015", 2, 5, 5)
+Carro1 = Carros("Parati", 1999, 2, 5, 5)
+Carro2 = Carros("Marea", 2001, 4, 6, 5)
+Carro3 = Carros("Uno", 2013, 2, 5, 5)                     #OBJETOS E INSTÂNCIAS
+Carro4 = Carros("Corolla", 2014, 2, 6, 5)
+Carro5 = Carros("Golf", 2000, 2, 5, 5)
 
 todosOsCarros = [Carro1, Carro2, Carro3, Carro4, Carro5]
 
