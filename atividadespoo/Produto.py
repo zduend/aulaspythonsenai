@@ -4,24 +4,41 @@ class Produto:
         self.__preco = preco
         self.__quantidade_estoque = quantidade_estoque
 
-    @property
-    def nome(self):
-        return self.__nome
 
-    def preco(self, novo_preco):
-        if novo_preco < 0:
-            print("Não é possivel colocar produtos com valores negativos")
+    def adicionar_estoque(self, quantidade):
+            if quantidade > 0:
+                self.__quantidade_estoque += quantidade
+            else:
+                print("Erro: Quantidade inválida")
+
+    def realizar_venda(self, quantidade):
+        if quantidade > 0 and quantidade <= self.__quantidade_estoque:
+            self.__quantidade_estoque -= quantidade
         else:
-            self.__preco = novo_preco
+            print("Venda negada: Estoque insuficiente")
 
-    def adicionar_estoque(self, novo_quantidade):
-        if novo_quantidade > 0:
-            self.__quantidade_estoque += novo_quantidade
+
+    def aplicar_desconto(self, percentual):
+        if percentual > 0 and percentual <= 80:
+           desconto = self.__preco * percentual / 100
+           self.__preco -= desconto
         else:
-            print("Erro: Quantidade inválida")
+            print("Erro: Desconto inválido")
 
-    def realizar_venda(self):
 
+    def exibir_resumo(self):
+        print(f"Nome do produto: {self.__nome}")
+        print(f"Preco do produto: {self.__preco}")
+        print(f"Quantidade de estoque: {self.__quantidade_estoque}")
+
+placa_de_video = Produto("GTX 4060", 3500, 100)
+placa_de_video.__quantidade_estoque = -50
+placa_de_video.__preco = -100
+placa_de_video.realizar_venda (9999)
+
+placa_de_video.exibir_resumo()
+
+print(placa_de_video.__dict__)
 
 
 
