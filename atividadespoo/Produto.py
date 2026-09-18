@@ -32,6 +32,8 @@ class Produto:
         print(f"Quantidade de estoque: {self.__quantidade_estoque}")
 
 placa_de_video = Produto("GTX 4060", 3500, 100)
+
+
 placa_de_video.__quantidade_estoque = -50
 placa_de_video.__preco = -100
 placa_de_video.realizar_venda (9999)
