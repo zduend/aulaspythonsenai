@@ -1,4 +1,4 @@
-from aulas.poo.heranca.diretoria.Coordenacao import Coordenacao
+from aulas.poo.heranca.exemplo1.diretoria.Coordenacao import Coordenacao
 
 
 class Sala(Coordenacao):
@@ -10,7 +10,7 @@ class Sala(Coordenacao):
     def ter_aula(self):
         print(f"Aula de: {self.cursos}"
               f"No Laboratorio de: {self.__tipo}"
-              f"\n com o professor: {self.professores}"
+              f"\n com o professor: {self.escolher_professores[0]}"
               f"\n com os alunos:")
         for aluno in self.alumos:
             print(aluno)

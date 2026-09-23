@@ -14,3 +14,6 @@ class Coordenacao:
     def alumos(self):
         return self.__alumos
 
+    def escolher_professores(self, index_professores):
+        return self.__professores[index_professores]
+
