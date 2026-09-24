@@ -7,12 +7,12 @@ class Mamifero (Animal):
         self.__velocidade_kmh = velocidade_kmh
 
 
-    @property
-    def velocidade_kmh(self):
-        return self.__velocidade_kmh
+    # @property
+    # def velocidade_kmh(self):
+    #     return self.__velocidade_kmh
 
     def correr(self):
-        print(f"{self.nome} Correu a {self.velocidade_kmh} kmh")
+        print(f"{self.nome} Correu a {self.__velocidade_kmh} kmh")
         self.nivel_fome += 20
 
     def emitir_som(self):
@@ -20,4 +20,4 @@ class Mamifero (Animal):
 
     def exibir_resumo(self):
         super().exibir_resumo()
-        print(f"Velocidade: {self.velocidade_kmh} kmh")
+        print(f"Velocidade: {self.__velocidade_kmh} kmh")
