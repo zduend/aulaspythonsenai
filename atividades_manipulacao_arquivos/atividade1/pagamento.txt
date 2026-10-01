@@ -1,0 +1,7 @@
+RECIBO DE COMPRA
+nome do cliente: Samuel
+Lista detalhada de produtos:
+Arroz - R$ 15.00
+Feijao - R$ 65.00
+Maionese - R$ 41.00
+total da compra: 121.00
