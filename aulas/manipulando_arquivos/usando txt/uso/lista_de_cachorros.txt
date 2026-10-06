@@ -1,0 +1,3 @@
+Cachorro: nome: Rex, idade: 5, raça: Buldog
+Cachorro: nome: Zeus, idade: 4, raça: PastorAlemao
+Cachorro: nome: Bolinha, idade: 1, raça: Doberman
