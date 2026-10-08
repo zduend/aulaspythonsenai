@@ -1,0 +1,6 @@
+RECIBO DO CARRINHO
+
+['macarrao', 10.0]Produto: macarrao R$10.00
+Produto: maionese R$45.00
+
+Total a pagar: 55.00
