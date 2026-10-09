@@ -1,21 +1,20 @@
-# with open('alunos.txt', 'r', encoding = 'utf-8') as arquivo:
-#     conteudo = arquivo.readlines()
-#
-# for aluno in conteudo:
-#     dados = aluno.strip().split(";")
-#     # print(f"Aluno: {dados[0]} | Turma: {dados[1]} | Nota 1: {dados[2]} | Nota 2: {dados[3]} | Nota 3: {dados[4]} | Nota 4: {dados[5]} | Status: {dados[6]}")
 
 
 #################-ADICIONAR ALUNO-###############
 def adicionar_aluno():
     nome = input('Digite o nome do aluno: ')
     turma = input('Digite a turma do aluno: ')
+    try:
+        nota1 = float(input('Digite a primeira nota do aluno: '))
+        nota2 = float(input('Digite a segunda nota do aluno: '))
+        nota3 = float(input('Digite a terceira nota do aluno: '))
+        nota4 = float(input('Digite a quarta nota do aluno: '))
+        media = (nota1 + nota2 + nota3 + nota4) / 4
+    except ValueError:
+        print("Erro! As notas devem ser números. ")
+        return
 
-    nota1 = float(input('Digite a primeira nota do aluno: '))
-    nota2 = float(input('Digite a segunda nota do aluno: '))
-    nota3 = float(input('Digite a terceira nota do aluno: '))
-    nota4 = float(input('Digite a quarta nota do aluno: '))
-    media = (nota1 + nota2 + nota3 + nota4) / 4
+
     if media >= 7:
         status = 'Aprovado'
     else:
@@ -40,6 +39,8 @@ def calcular_media():
 
         for aluno in alunos:
             dados = aluno.strip().split(";")
+            if len(dados) < 7:
+                continue
 
             if(dados[0] == nome_busca):
                 print(f"Aluno Encontrado: {dados[0]}")
@@ -74,6 +75,8 @@ def consultar_status():
 
         for aluno in alunos:
             dados = aluno.strip().split(";")
+            if len(dados) < 7:
+                continue
 
             if dados[0] == nome_busca:
                 encontrado = True
@@ -120,8 +123,8 @@ def maior_media_turma():
                         nome_melhor_aluno = dados[0]
 
             if encontrado == True:
-                        print(f"Aluno Com a Maior média: {nome_melhor_aluno}")
-                        print(f"Maior média: {maior_media:.2f}")
+                print(f"Aluno Com a Maior média: {nome_melhor_aluno}")
+                print(f"Maior média: {maior_media:.2f}")
             else:
                 print("Nenhum aluno encontrado")
 
