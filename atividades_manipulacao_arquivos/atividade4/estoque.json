@@ -1,0 +1,20 @@
+{
+    "nome": "SamucaStore",
+    "produtos": [
+        {
+            "nome": "Teclado",
+            "preco": 50,
+            "quantidade": 100
+        },
+        {
+            "nome": "Mouse",
+            "preco": 25,
+            "quantidade": 200
+        },
+        {
+            "nome": "Monitor",
+            "preco": 300,
+            "quantidade": 70
+        }
+    ]
+}
