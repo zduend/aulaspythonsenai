@@ -13,8 +13,13 @@
         },
         {
             "nome": "Monitor",
-            "preco": 300,
+            "preco": 270.0,
             "quantidade": 70
+        },
+        {
+            "nome": "Fone",
+            "preco": 120,
+            "quantidade": 80
         }
     ]
 }

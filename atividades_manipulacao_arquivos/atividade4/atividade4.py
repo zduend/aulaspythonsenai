@@ -24,5 +24,16 @@ novo_produto = {
         "quantidade": 80
     }
 dados_lidos['produtos'].append(novo_produto)
+print(f"O prduto {novo_produto['nome']} custa R${novo_produto['preco']:.2f}")
+
 
 print(dados_lidos['produtos'])
+
+for produto in dados_lidos['produtos']:
+    if produto['nome'] == "Monitor":
+        produto['preco'] = produto['preco'] * 0.90
+        print(f"Monitor com 10% de desconto: {produto['preco']:.2f}")
+
+with open('estoque.json', 'w',encoding = 'utf-8') as arquivo:
+    json.dump(dados_lidos, arquivo, ensure_ascii=False,indent=4)
+
