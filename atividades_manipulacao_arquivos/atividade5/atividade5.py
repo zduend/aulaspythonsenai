@@ -71,6 +71,8 @@ with open('catalogo.json', 'w', encoding = 'utf-8') as arquivo:
 with open('catalogo.json', 'r', encoding = 'utf-8') as arquivo:
     dados_lidos = json.load(arquivo)
 
+print("LIVROS COM MENOS DE 15 UNIDADES:")
+
 for livro in dados_lidos:
     if livro["em_estoque"] < 15:
         print(livro["nome"])
@@ -78,6 +80,6 @@ for livro in dados_lidos:
 valor_total_livros = 0
 for livro in dados_lidos:
     valor_total_livros = valor_total_livros + (livro["preco"] * livro["em_estoque"])
-    print(f"Valor total do estoque: R$ {valor_total_livros:.2f}")
+print(f"Valor total do estoque: R$ {valor_total_livros:.2f}")
 
 
