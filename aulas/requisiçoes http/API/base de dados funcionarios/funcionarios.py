@@ -21,6 +21,7 @@ for funcionario in lista_funcionarios:
             resposta = requests.get(link_cep)
             print(resposta.status_code)
             if resposta.status_code == 200:
+                print(f"Cep {resposta.json()['cep']} válido\n")
                 dicionario_funcionario = resposta.json()
                 for chave, valor in dicionario_funcionario.items():
                     if chave == 'localidade':
