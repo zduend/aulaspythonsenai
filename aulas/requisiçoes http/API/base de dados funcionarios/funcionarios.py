@@ -1,55 +1,66 @@
-import requests
-import json
+import requests, json
 
 link_funcionarios = "http://192.168.205.100:8080/funcionarios"
 
 #                json    python
 # dados vazios = null == None
 
-resposta = requests.get(link_funcionarios) # enviando uma requisição do tipo GET
+resposta = requests.get(link_funcionarios, timeout=100) # enviando uma requisição do tipo GET
 print(resposta.json()) # mostrando o que recebeu na requisição HTTP
 
 lista_funcionarios = resposta.json()
 
-print("--- LISTA DE FUNCIONARIOS SEM ENDEREÇO CADASTRADO ---\n")
-
 for funcionario in lista_funcionarios:
+    for chave, valor in funcionario.items():
+        if valor == None or valor == 0:
+            print(f'O campo {chave} de {funcionario['nome']} está vazio')
 
+print("--- LISTA DE FUNCIONARIOS SEM ENDEREÇO CADASTRADO ---\n")
+for funcionario in lista_funcionarios:
     if funcionario['cep'] == None:
         print(f"O funcionário(a) {funcionario['nome']} não tem cep cadastrado\n")
-
         while True:
             try:
                 cep_digitado = input("Digite o CEP dele: ")
                 link_cep = f"https://viacep.com.br/ws/{cep_digitado}/json/"
                 resposta = requests.get(link_cep)
                 print(resposta.status_code)
-
                 if resposta.status_code == 200:
                     dicionario_funcionario = resposta.json()
 
-                    funcionario['cep'] = dicionario_funcionario['cep']
+                    funcionario['cep'] = cep_digitado
                     funcionario['cidade'] = dicionario_funcionario['localidade']
                     funcionario['estado'] = dicionario_funcionario['estado']
                     break
                 else:
-                    print("cep digitado incorretamente")
+                    print("CEP digitado incorretamente")
             except Exception as erro:
-                print("Erro ao obter o CEP NAO TEM ENDEREÇO")
+                print("CEP digitado invalido, não tem endereço")
 
+    if not funcionario['tempoEmpresa']:
+        repetir = None
+        tempo_empresa_digitado = 0
+        print(f"\nO funcionário(a) {funcionario['nome']} não tem o tempo de empresa cadastrado\n")
+        while True:
+            try:
+                tempo_empresa_digitado = int(input("Digite o tempo de empresa: "))
+                repetir = False
+            except Exception as erro:
+                print("Erro inesperado: ", erro)
+                repetir = True
+            finally:
+                if not repetir:
+                    funcionario['tempoEmpresa'] = tempo_empresa_digitado
+                    break
 
 # base de dados atualizada
 for funcionario in lista_funcionarios:
     print(funcionario)
 
+with open('dados_funcionarios_atualizados.json', 'w', encoding='utf-8') as arquivo:
+    json.dump(lista_funcionarios, arquivo, ensure_ascii=False, indent=4)
 
-with open('funcionarios.json', 'w',encoding='utf-8') as json_file:
-    json.dump(lista_funcionarios, json_file, ensure_ascii=False, indent=4)
+with open("dados_funcionarios_atualizados.json", "r", encoding='utf-8') as arquivo:
+    arquivo_json = json.load(arquivo)
 
-
-
-# inserir dados onde estiver algum dado vazio
-# no cep, apenas aceitar CEPS válidos
-#   (que tenham retorno de cidade, estado, etc...)
-# salvar os dados preenchidos em um arquivo JSON
-#   (ex: dados_funcionarios_atualizados.json)
+    print(arquivo_json)
