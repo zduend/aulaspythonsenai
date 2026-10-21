@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.read_csv("funcionarios.csv", sep=";")
 
-#IMPRIMINDO SALÁRIOS MENORES QUE 300
+#IMPRIMINDO SALÁRIOS MENORES QUE 3000
 print("Estes são os salários menores que que 3000: ")
 print(df[df['salario'] < 3000])
 print()
@@ -30,3 +30,4 @@ print()
 
 #LISTAR FUNCIONARIOS COM O ID PAR
 print(df[df["id"] % 2 == 0])
+
