@@ -54,11 +54,51 @@ print()
 
 print(f"###################### FORMATAÇÃO DOS SALÁRIOS ######################")
 
-df["salario_formatado"] = (
-    df["salario"]
+tem_virgula = df["salario"].str.contains(",", regex=False)
+print(df.loc[tem_virgula,["salario"]])
+
+df["salario_formatado"] = df["salario"].copy()
+
+df.loc[tem_virgula,"salario_formatado"] = (
+    df.loc[tem_virgula,"salario_formatado"]
     .str.replace(".", "", regex=False)
+)
+
+df["salario_formatado"] = (
+    df["salario_formatado"]
     .str.replace(",",".", regex=False)
     .str.replace("R$","",regex=False)
     .str.strip()
 )
-print(df[["salario", "salario_formatado"]])
+
+
+df["salario_formatado"] = df["salario_formatado"].astype(float)
+
+
+
+df = df[[
+    "nome",
+    "cpf",
+    "cpf_formatado",
+    "cpf_valido",
+    "numero",
+    "numero_formatado",
+    "numero_valido",
+    "salario",
+    "salario_formatado",
+]]
+print(df.head())
+
+df.to_csv("dados_padronizados.csv", index=False)
+
+print("Arquivo salvo com sucesso!")
+
+df_verificacao = pd.read_csv("dados_padronizados.csv", dtype=str)
+
+print(df_verificacao.shape)
+print(df_verificacao.columns)
+print(df_verificacao.loc[16, ["nome", "salario", "salario_formatado"]])
+
+
+
+
