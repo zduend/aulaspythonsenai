@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\projeto_analise_dados\atividades\atividade8\customers-10000.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
